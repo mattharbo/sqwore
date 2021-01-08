@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+ /* #### CSS Parials #### */
+ /* @import "components/colors"; */
+
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+body{
+  font-family: 'Hammersmith One', sans-serif;
+  /* font-weight: 400; */
+  font-size: 10px;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content:center;
+	align-items:center;
+	align-content:center;
+  background-color: rgb(37, 36, 45);
+}
+
+.main_container{
+  width: 250px;
+  height: 350px;
+  border-radius: 4px;
+  background-color: white;
+}
