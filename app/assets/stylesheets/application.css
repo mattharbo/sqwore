@@ -18,10 +18,10 @@
  /* @import "components/colors"; */
 
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 body{
-  font-family: 'Hammersmith One', sans-serif;
-  /* font-weight: 400; */
+  font-family: 'Roboto', sans-serif;
   font-size: 10px;
   height: 100vh;
   margin: 0;
@@ -32,9 +32,14 @@ body{
   background-color: rgb(37, 36, 45);
 }
 
+h1{
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 40px;
+}
+
 .main_container{
-  width: 250px;
-  height: 350px;
-  border-radius: 4px;
+  width: 400px;
+  height: 562px;
+  border-radius: 3px;
   background-color: white;
 }
