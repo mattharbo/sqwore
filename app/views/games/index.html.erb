@@ -1,0 +1,14 @@
+<%= link_to "Quit", root_path, class:""  %>
+
+
+<h2>
+  here the list of all past games
+</h2>
+
+<%@games.each do |game|%>
+  <p>
+    <%=game.date%>
+    <strong>Winner:</strong>
+    <%=game.winner.forename%>
+  </p>
+<%end%>
