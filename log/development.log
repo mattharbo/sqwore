@@ -1379,3 +1379,1621 @@ Processing by GamesController#new as HTML
 Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 5059)
 
 
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3812937285331623855)[0m
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateParticipations (20210108165722)
+  [1m[35m (18.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (156.6ms)[0m  [1m[35mCREATE TABLE "participations" ("id" bigserial primary key, "game_id" bigint NOT NULL, "player_id" bigint NOT NULL, "score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_22b3b74628"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+, CONSTRAINT "fk_rails_fa54aaa276"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_participations_on_game_id" ON "participations"  ("game_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_participations_on_player_id" ON "participations"  ("player_id")[0m
+  [1m[36mprimary::SchemaMigration Create (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210108165722"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (18.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3812937285331623855)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-01-08 18:01:48 +0100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 1.2ms | Allocations: 204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 138ms (Views: 136.1ms | ActiveRecord: 0.0ms | Allocations: 16609)
+
+
+Started GET "/" for ::1 at 2021-01-08 18:01:49 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 78)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4170)
+
+
+Started GET "/" for ::1 at 2021-01-08 18:01:50 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.1ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4123)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-08 18:01:52 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 150)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 85.1ms | ActiveRecord: 0.0ms | Allocations: 4757)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-08 18:12:27 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 427.0ms | Allocations: 146245)
+Completed 500 Internal Server Error in 555ms (ActiveRecord: 92.3ms | Allocations: 152454)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `player' for #<#<Class:0x00007f9ce1e967d8>:0x00007f9cdee6bdb0>
+Did you mean?  players_url):
+     6: 
+     7: <%= form_for @participation do |e| %>
+     8:     <%= e.label :player, "Player"%>
+     9:     <%= e.collection_select :player_id, player.all, :id, :forename, prompt: true%>
+    10: 
+    11: 
+    12: 
+  
+app/views/participations/new.html.erb:9
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:12:57 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 242.9ms | Allocations: 146228)
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 0.0ms | Allocations: 147443)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `player' for #<#<Class:0x00007f9ce22ac958>:0x00007f9ce22b6160>
+Did you mean?  players_url):
+     6: 
+     7: <%= form_for @participation do |e| %>
+     8:     <%= e.label :player, "Player"%>
+     9:     <%= e.collection_select :player, player.all, :id, :forename, prompt: true%>
+    10: 
+    11: 
+    12: 
+  
+app/views/participations/new.html.erb:9
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:13:03 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 242.0ms | Allocations: 146227)
+Completed 500 Internal Server Error in 245ms (ActiveRecord: 0.0ms | Allocations: 147442)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `player' for #<#<Class:0x00007f9cde1d7298>:0x00007f9cde1d5678>
+Did you mean?  players_url):
+     6: 
+     7: <%= form_for @participation do |e| %>
+     8:     <%= e.label :player, "Player"%>
+     9:     <%= e.collection_select :players_url, player.all, :id, :forename, prompt: true%>
+    10: 
+    11: 
+    12: 
+  
+app/views/participations/new.html.erb:9
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:41:48 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (30.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 1152)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 297ms (Views: 40.1ms | ActiveRecord: 191.8ms | Allocations: 15860)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-08 18:44:16 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1206)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 138ms (Views: 21.5ms | ActiveRecord: 90.3ms | Allocations: 15938)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-08 18:45:01 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 574)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 41.8ms | ActiveRecord: 0.4ms | Allocations: 6212)
+
+
+Started POST "/participations" for ::1 at 2021-01-08 18:45:06 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"KXN++ZJJtbDofMxUdfbHNhRDpptZ4+PyeLpi5xW/mZoANFn+HTBSOGesxPBqnBHIMkCt8g421bid748LNhWcbA==", "participation"=>{"player"=>""}, "commit"=>"Let s play!"}
+  [1m[36mGame Load (113.0ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:18:in `create'
+Completed 500 Internal Server Error in 286ms (ActiveRecord: 181.8ms | Allocations: 10179)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:20:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-08 18:45:12 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 369)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.3ms | Allocations: 5089)
+
+
+Started POST "/participations" for ::1 at 2021-01-08 18:45:15 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"RXUek06EveB6m2Byvx5UtacbCwTUAZXqzfoxWzb99CONbAaAg+w3fERt6jWE6TzzH1QnkH4s2TFeeUtZB93bDA==", "participation"=>{"player"=>"1"}, "commit"=>"Let s play!"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:18:in `create'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 2135)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:20:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-08 18:45:48 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 738)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.2ms | Allocations: 6377)
+
+
+Started POST "/participations" for ::1 at 2021-01-08 18:45:52 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"awHOKrcoNhZK+tRm8sd1YZqHFJ5CvB4Px7cl//2gLlVCRuktOFHRnsUq3MLtraOfvIQf9xVpKEUi4sgT3gorow==", "participation"=>{"player"=>""}, "commit"=>"Let s play!"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:18:in `create'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 2092)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:20:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-08 18:45:59 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 497)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.3ms | Allocations: 5203)
+
+
+Started POST "/participations" for ::1 at 2021-01-08 18:46:05 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"D/TaLId8OebXJNnz/2FqPh5Pt+FWhDgyFEZd3cA275rH7cI/ShSzeunSU7TElgJ4pgCbdfypdOmHxSff8RbAtQ==", "participation"=>{"player"=>"1"}, "commit"=>"Let s play!"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:18:in `create'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms | Allocations: 2130)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:20:in `create'
+Started POST "/participations" for ::1 at 2021-01-08 18:46:11 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"awHOKrcoNhZK+tRm8sd1YZqHFJ5CvB4Px7cl//2gLlVCRuktOFHRnsUq3MLtraOfvIQf9xVpKEUi4sgT3gorow==", "participation"=>{"player"=>"1"}, "commit"=>"Let s play!"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:18:in `create'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 2105)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:20:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-08 18:46:23 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2949)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms | Allocations: 4784)
+
+
+  
+ActionView::Template::Error (undefined method `player1' for #<Participation:0x00007f9ce227d798>
+Did you mean?  player
+               player=):
+     7: <%= form_for @participation do |e| %>
+     8: 
+     9:   <%= e.label :player1, "Player"%>
+    10:   <%= e.select(:player1, options_for_select(@players)) %>
+    11: 
+    12:   <%= e.label :player2, "Player"%>
+    13:   <%= e.select(:player2, options_for_select(@players)) %>
+  
+app/views/participations/new.html.erb:10
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:50:20 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1120)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.9ms | Allocations: 2956)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: 
+    5: <h3>List in the oder of play</h3>
+    6: 
+    7: <%= form_for @participation1 do |e| %>
+    8: 
+    9:   <%= e.label :player1, "Player"%>
+   10:   <%= e.select(:player1, options_for_select(@players)) %>
+  
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:50:37 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1118)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms | Allocations: 2953)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: 
+    5: <h3>List in the oder of play</h3>
+    6: 
+    7: <%= form_for @participation1 do |e| %>
+    8: 
+    9:   <%= e.label :player, "Player"%>
+   10:   <%= e.select(:player, options_for_select(@players)) %>
+  
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:50:50 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:6:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1118)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms | Allocations: 2953)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: 
+    5: <h3>List in the oder of play</h3>
+    6: 
+    7: <%= form_for @participation1 do |e| %>
+    8: 
+    9:   <%= e.label :player, "Player"%>
+   10:   <%= e.select(:player, options_for_select(@players)) %>
+  
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:50:56 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:7:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 111ms (Views: 15.1ms | ActiveRecord: 71.2ms | Allocations: 15935)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-08 18:51:56 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:7:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 985)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 0.3ms | Allocations: 6640)
+
+
+Started POST "/participations" for ::1 at 2021-01-08 18:52:03 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"yD4xqcThZyYCYsvu82D8l3xop6BI0gfiLPhC2pO1C3XheRauS5iAro2yw0rsCippWmusyR8HMajJra82sB8Ogw==", "participation"=>{"player"=>"1"}, "commit"=>"Let s play!"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 20.8ms | Allocations: 8644)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:21:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-08 18:52:14 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:7:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 689)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.3ms | Allocations: 5424)
+
+
+Started POST "/participations" for ::1 at 2021-01-08 18:52:18 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"zG5AIY6B1TwHBCCLu51r5DD3gtW6LG5OJMzLk90g8FAEd1gyQ+lfoDnyqsyAagOiiLiuQRABIpW3T7GR7ADffw==", "participation"=>{"player"=>"1"}, "commit"=>"Let s play!"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms | Allocations: 2128)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:21:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-08 18:52:41 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:7:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1698)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 3550)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    4: 
+    5: <h3>List in the oder of play</h3>
+    6: 
+    7: <%= select(:player, options_for_select(@players)) %>
+    8: 
+    9: <%= form_for @participation1 do |e| %>
+   10: 
+  
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 18:52:52 +0100
+Processing by ParticipationsController#new as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/participations_controller.rb:7:in `map'
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 534.9ms | Allocations: 146373)
+Completed 500 Internal Server Error in 539ms (ActiveRecord: 0.3ms | Allocations: 148225)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `z' for #<#<Class:0x00007f9ce6866480>:0x00007f9ce686ee00>):
+    4: 
+    5: <h3>List in the oder of play</h3>
+    6: 
+    7: <%= z.select(:player, options_for_select(@players)) %>
+    8: 
+    9: <%= form_for @participation1 do |e| %>
+   10: 
+  
+app/views/participations/new.html.erb:7
+Started GET "/participations/new" for ::1 at 2021-01-08 19:04:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/participations/new"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/games/new" for ::1 at 2021-01-08 19:04:37 +0100
+Processing by GamesController#new as HTML
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/controllers/games_controller.rb:9:in `map'
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/new.html.erb within layouts/application (Duration: 26.6ms | Allocations: 2922)
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 1.2ms | Allocations: 21301)
+
+
+  
+ActionView::Template::Error (undefined method `player' for #<Game:0x00007f9ce705d530>):
+     8:   <%= f.fields_for :participations do |participation| %>
+     9: 
+    10:     <%= f.label :player, "Player"%>
+    11:     <%= f.select(:player, options_for_select(@players)) %>
+    12: 
+    13: 
+    14:     <p>
+  
+app/views/games/new.html.erb:11
+app/views/games/new.html.erb:8
+app/views/games/new.html.erb:7
+Started GET "/games/new" for ::1 at 2021-01-09 13:27:15 +0100
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 160)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 101ms (Views: 83.8ms | ActiveRecord: 0.0ms | Allocations: 5111)
+
+
+Started GET "/" for ::1 at 2021-01-09 13:27:25 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 2.0ms | Allocations: 199)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 4849)
+
+
+Started GET "/games/new" for ::1 at 2021-01-09 13:27:27 +0100
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 46)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 35.1ms | ActiveRecord: 0.0ms | Allocations: 4103)
+
+
+Started GET "/" for ::1 at 2021-01-09 13:27:28 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 1.2ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.0ms | Allocations: 4134)
+
+
+Started GET "/games" for ::1 at 2021-01-09 13:27:33 +0100
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (127.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:8
+  [1m[36mPlayer Load (24.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (Duration: 388.5ms | Allocations: 9917)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 434ms (Views: 244.2ms | ActiveRecord: 152.9ms | Allocations: 15153)
+
+
+Started GET "/" for ::1 at 2021-01-09 13:27:36 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 78)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 4145)
+
+
+Started GET "/games" for ::1 at 2021-01-09 13:27:38 +0100
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:8
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1478)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 1.1ms | Allocations: 5553)
+
+
+Started GET "/" for ::1 at 2021-01-09 13:27:39 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 1.2ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 4123)
+
+
+Started GET "/games/new" for ::1 at 2021-01-09 13:27:40 +0100
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 81ms (Views: 78.9ms | ActiveRecord: 0.0ms | Allocations: 4110)
+
+
+Started GET "/" for ::1 at 2021-01-09 13:27:41 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 9.2ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 81ms (Views: 80.7ms | ActiveRecord: 0.0ms | Allocations: 4151)
+
+
+Started GET "/games" for ::1 at 2021-01-09 13:27:41 +0100
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:8
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 1478)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 73.0ms | ActiveRecord: 0.7ms | Allocations: 5548)
+
+
+Started GET "/" for ::1 at 2021-01-09 13:27:45 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 96ms (Views: 88.9ms | ActiveRecord: 0.0ms | Allocations: 4121)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:06:11 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 10.0ms | Allocations: 199)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 47.5ms | ActiveRecord: 0.0ms | Allocations: 5217)
+
+
+Started GET "/games/new" for ::1 at 2021-01-09 14:06:14 +0100
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 152)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 4815)
+
+
+Started GET "/games/new" for ::1 at 2021-01-09 14:06:32 +0100
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 148)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 5164)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:06:34 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 1.7ms | Allocations: 193)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4864)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:06:35 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 4776)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:11:48 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (30.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 55.2ms | Allocations: 5478)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 144ms (Views: 45.8ms | ActiveRecord: 30.5ms | Allocations: 16157)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:12:00 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 992)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 49.6ms | ActiveRecord: 0.4ms | Allocations: 5132)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:12:03 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 1.2ms | Allocations: 194)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.0ms | Allocations: 4862)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:12:05 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 994)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.7ms | Allocations: 5122)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:12:10 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1241)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 42.0ms | ActiveRecord: 0.4ms | Allocations: 6290)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:12:51 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:13
+  Rendered participations/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 1258)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 50.2ms | ActiveRecord: 0.4ms | Allocations: 6304)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:13:16 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:13
+  Rendered participations/new.html.erb within layouts/application (Duration: 15.6ms | Allocations: 1258)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 42.0ms | ActiveRecord: 0.4ms | Allocations: 6305)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:13:42 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.4ms | Allocations: 6289)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:13:50 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 32.9ms | ActiveRecord: 0.3ms | Allocations: 6285)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:13:54 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 0.5ms | Allocations: 6289)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:20:06 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 4972)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 29.7ms | ActiveRecord: 1.0ms | Allocations: 15647)
+
+
+Started GET "/players/new" for ::1 at 2021-01-09 14:20:13 +0100
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1021)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2089)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to "Quit", root_path, class:""  %>
+
+<h1>Player new</h1>
+
+<h2>Creation of a new player</h2>
+
+<%=form_for @newplayer do |n|%>
+
+  <%= n.label :forename, ‘Enter a forename>
+  <%= n.text_field :forename>
+
+  <%= n.label :surname, ‘Enter a surname>
+  <%= n.text_field :surname>
+
+  <%= n.submit 'Create new player', class: "" %>
+
+<%end%>
+
+):
+1:    <%= link_to "Quit", root_path, class:""  %>
+2:    
+3:    <h1>Player new</h1>
+4:    
+5:    <h2>Creation of a new player</h2>
+6:    
+7:    <%=form_for @newplayer do |n|%>
+8:    
+9:      <%= n.label :forename, ‘Enter a forename>
+10:      <%= n.text_field :forename>
+11:    
+12:      <%= n.label :surname, ‘Enter a surname>
+13:      <%= n.text_field :surname>
+14:    
+15:      <%= n.submit 'Create new player', class: "" %>
+16:    
+17:    <%end%>
+  
+app/views/players/new.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/players/new" for ::1 at 2021-01-09 14:20:57 +0100
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1067)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2306)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to "Quit", root_path, class:""  %>
+
+<h1>Player new</h1>
+
+<h2>Creation of a new player</h2>
+
+<%=form_for @newplayer do |n|%>
+
+  <%= n.label :forename, "Enter a forename">
+  <%= n.text_field :forename>
+
+  <%= n.label :surname, "Enter a surname">
+  <%= n.text_field :surname>
+
+  <%= n.submit 'Create new player', class: "" %>
+
+<%end%>
+
+):
+1:    <%= link_to "Quit", root_path, class:""  %>
+2:    
+3:    <h1>Player new</h1>
+4:    
+5:    <h2>Creation of a new player</h2>
+6:    
+7:    <%=form_for @newplayer do |n|%>
+8:    
+9:      <%= n.label :forename, "Enter a forename">
+10:      <%= n.text_field :forename>
+11:    
+12:      <%= n.label :surname, "Enter a surname">
+13:      <%= n.text_field :surname>
+14:    
+15:      <%= n.submit 'Create new player', class: "" %>
+16:    
+17:    <%end%>
+  
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:10: syntax error, unexpected '<'
+app/views/players/new.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/players/new.html.erb:13: syntax error, unexpected '<'
+app/views/players/new.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/players/new" for ::1 at 2021-01-09 14:21:14 +0100
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 687)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms | Allocations: 5729)
+
+
+Started GET "/players/new" for ::1 at 2021-01-09 14:21:25 +0100
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 622)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 5656)
+
+
+Started POST "/players" for ::1 at 2021-01-09 14:21:31 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"authenticity_token"=>"+itq5QOEZ0y+YEo6TvbpsTBYxUEhOmtbuDh3AFwiosISXqcaI5k/+ZtMuoPCYndTsMeMUQpqKXDBVCzr+nU8eA==", "player"=>{"forename"=>"Clara", "surname"=>"Maquet"}, "commit"=>"Create new player"}
+Completed 500 Internal Server Error in 466ms (ActiveRecord: 0.0ms | Allocations: 97523)
+
+
+  
+NameError (undefined local variable or method `player' for #<PlayersController:0x00007f9ce70674b8>
+Did you mean?  players_url):
+  
+app/controllers/players_controller.rb:12:in `create'
+Started POST "/players" for ::1 at 2021-01-09 14:22:06 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"authenticity_token"=>"+itq5QOEZ0y+YEo6TvbpsTBYxUEhOmtbuDh3AFwiosISXqcaI5k/+ZtMuoPCYndTsMeMUQpqKXDBVCzr+nU8eA==", "player"=>{"forename"=>"Clara", "surname"=>"Maquet"}, "commit"=>"Create new player"}
+  [1m[35m (5.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:12:in `create'
+  [1m[36mPlayer Create (68.1ms)[0m  [1m[32mINSERT INTO "players" ("forename", "surname", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["forename", "Clara"], ["surname", "Maquet"], ["created_at", "2021-01-09 13:22:06.593748"], ["updated_at", "2021-01-09 13:22:06.593748"]]
+  ↳ app/controllers/players_controller.rb:12:in `create'
+  [1m[35m (28.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:12:in `create'
+Redirected to http://localhost:3000/participations/new
+Completed 302 Found in 295ms (ActiveRecord: 276.7ms | Allocations: 7721)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:22:06 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (6.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2037)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 14.0ms | ActiveRecord: 12.2ms | Allocations: 11142)
+
+
+Started POST "/participations" for ::1 at 2021-01-09 14:22:32 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"JhYsbadBhsooTIqysLBlQjXrWVyv7StVP4P5or2LXTnOY+GSh1zefw1gegs8JPugtXQQTIS9aX5G76JJG9zDgw==", "participation"=>{"player"=>["#<Player:0x00007f9ce70f74f0>", "#<Player:0x00007f9ce70f7388>"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (18.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 22.7ms | Allocations: 6976)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-09 14:23:42 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1403)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.3ms | Allocations: 6452)
+
+
+Started GET "/players/new" for ::1 at 2021-01-09 14:23:44 +0100
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 671)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms | Allocations: 5359)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:23:46 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.6ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4816)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:23:48 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1135)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 5257)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:24:10 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1403)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 59.4ms | ActiveRecord: 0.5ms | Allocations: 6456)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:24:16 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 19.6ms | Allocations: 1403)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 41.8ms | ActiveRecord: 0.8ms | Allocations: 6458)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:24:22 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1385)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.4ms | Allocations: 6430)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:24:30 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1386)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 6429)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:25:23 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1434)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 29.0ms | ActiveRecord: 1.2ms | Allocations: 6497)
+
+
+Started GET "/players/new" for ::1 at 2021-01-09 14:25:38 +0100
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 620)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 5650)
+
+
+Started POST "/players" for ::1 at 2021-01-09 14:25:42 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"authenticity_token"=>"f3mjSzhyPUhEx5YFW6N5NcGEYs9LE5sekONqYXYcbxsAVnBAnuapFuG15HAqNi2AjLNMgfrPTJ3Jj9CTmnBMrA==", "player"=>{"forename"=>"Andréa", "surname"=>"Maquet"}, "commit"=>"Create new player"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/players_controller.rb:12:in `create'
+  [1m[36mPlayer Create (7.2ms)[0m  [1m[32mINSERT INTO "players" ("forename", "surname", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["forename", "Andréa"], ["surname", "Maquet"], ["created_at", "2021-01-09 13:25:42.584212"], ["updated_at", "2021-01-09 13:25:42.584212"]]
+  ↳ app/controllers/players_controller.rb:12:in `create'
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/players_controller.rb:12:in `create'
+Redirected to http://localhost:3000/participations/new
+Completed 302 Found in 22ms (ActiveRecord: 14.9ms | Allocations: 2842)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:25:42 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1496)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 6177)
+
+
+Started POST "/participations" for ::1 at 2021-01-09 14:26:06 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"zK/gkR1agZyFXwEjVvZDtH+PcyLIXU1OJK0uKmDclXIk2i1uPUfZKaBz8ZraYt1W/xA6MuMND2VdwXXBxosLyA==", "participation"=>{"player"=>["#<Player:0x00007f9cde203ed8>", "#<Player:0x00007f9cde203e10>", "#<Player:0x00007f9cde203d48>"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.7ms | Allocations: 2129)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:26:10 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:26:16 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:26:20 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:26:29 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:27:32 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:27:36 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:27:37 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:27:53 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:28:01 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:28:06 +0100
+Started PUT "/__web_console/repl_sessions/2046bf089c8594d4f503acf1835699a8" for ::1 at 2021-01-09 14:28:13 +0100
+Started POST "/participations" for ::1 at 2021-01-09 14:29:41 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"zK/gkR1agZyFXwEjVvZDtH+PcyLIXU1OJK0uKmDclXIk2i1uPUfZKaBz8ZraYt1W/xA6MuMND2VdwXXBxosLyA==", "participation"=>{"player"=>["#<Player:0x00007f9cde203ed8>", "#<Player:0x00007f9cde203e10>", "#<Player:0x00007f9cde203d48>"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 12.2ms | Allocations: 8278)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started POST "/participations" for ::1 at 2021-01-09 14:29:56 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"zK/gkR1agZyFXwEjVvZDtH+PcyLIXU1OJK0uKmDclXIk2i1uPUfZKaBz8ZraYt1W/xA6MuMND2VdwXXBxosLyA==", "participation"=>{"player"=>["#<Player:0x00007f9cde203ed8>", "#<Player:0x00007f9cde203e10>"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 2127)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started PUT "/__web_console/repl_sessions/cde51e40ae2287ba8c301e442c56362d" for ::1 at 2021-01-09 14:31:37 +0100
+Started PUT "/__web_console/repl_sessions/cde51e40ae2287ba8c301e442c56362d" for ::1 at 2021-01-09 14:31:41 +0100
+Started PUT "/__web_console/repl_sessions/cde51e40ae2287ba8c301e442c56362d" for ::1 at 2021-01-09 14:31:48 +0100
+Started PUT "/__web_console/repl_sessions/cde51e40ae2287ba8c301e442c56362d" for ::1 at 2021-01-09 14:31:48 +0100
+Started POST "/participations" for ::1 at 2021-01-09 14:33:10 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"zK/gkR1agZyFXwEjVvZDtH+PcyLIXU1OJK0uKmDclXIk2i1uPUfZKaBz8ZraYt1W/xA6MuMND2VdwXXBxosLyA==", "participation"=>{"player"=>["#<Player:0x00007f9cde203ed8>", "#<Player:0x00007f9cde203e10>"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 2127)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-09 14:33:36 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 5320)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 26.5ms | ActiveRecord: 9.2ms | Allocations: 16658)
+
+
+Started POST "/participations" for ::1 at 2021-01-09 14:33:38 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"VugvbsB1HBRsmGkoja9Kv7ZsYvOmhRyFQ+9cPo/XAye+neKR4GhEoUm0mZEBO9RdNvMr443VXq46gwfVKYCdnQ==", "participation"=>{"player"=>["1"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms | Allocations: 2137)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started POST "/participations" for ::1 at 2021-01-09 14:33:46 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"VugvbsB1HBRsmGkoja9Kv7ZsYvOmhRyFQ+9cPo/XAye+neKR4GhEoUm0mZEBO9RdNvMr443VXq46gwfVKYCdnQ==", "participation"=>{"player"=>["2", "3"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 2134)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started PUT "/__web_console/repl_sessions/43c8e5bffd4467eee6dfa7b14f7651e8" for ::1 at 2021-01-09 14:33:49 +0100
+Started PUT "/__web_console/repl_sessions/43c8e5bffd4467eee6dfa7b14f7651e8" for ::1 at 2021-01-09 14:33:51 +0100
+Started PUT "/__web_console/repl_sessions/43c8e5bffd4467eee6dfa7b14f7651e8" for ::1 at 2021-01-09 14:33:51 +0100
+  [1m[35m (23.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "participations"[0m
+Started POST "/participations" for ::1 at 2021-01-09 14:36:15 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"VugvbsB1HBRsmGkoja9Kv7ZsYvOmhRyFQ+9cPo/XAye+neKR4GhEoUm0mZEBO9RdNvMr443VXq46gwfVKYCdnQ==", "participation"=>{"player"=>["2", "3"]}, "commit"=>"Go go go"}
+  [1m[36mGame Load (4.5ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+  [1m[36mPlayer Load (43.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:23:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[36mParticipation Create (253.4ms)[0m  [1m[32mINSERT INTO "participations" ("game_id", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["game_id", 1], ["player_id", 2], ["created_at", "2021-01-09 13:36:16.284772"], ["updated_at", "2021-01-09 13:36:16.284772"]]
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[36mParticipation Create (18.0ms)[0m  [1m[32mINSERT INTO "participations" ("game_id", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["game_id", 1], ["player_id", 3], ["created_at", "2021-01-09 13:36:16.551376"], ["updated_at", "2021-01-09 13:36:16.551376"]]
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 449ms (ActiveRecord: 370.2ms | Allocations: 22751)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:36:16 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 1.1ms | Allocations: 194)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.0ms | Allocations: 4878)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "participations"[0m
+  [1m[36mParticipation Load (0.2ms)[0m  [1m[34mSELECT "participations".* FROM "participations" ORDER BY "participations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mParticipation Load (0.6ms)[0m  [1m[34mSELECT "participations".* FROM "participations" ORDER BY "participations"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+Started GET "/games" for ::1 at 2021-01-09 14:37:31 +0100
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:8
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (Duration: 29.2ms | Allocations: 10127)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 33.9ms | ActiveRecord: 10.0ms | Allocations: 15835)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:37:34 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.3ms | Allocations: 80)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 4333)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:37:34 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 12.7ms | ActiveRecord: 6.5ms | Allocations: 10570)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:38:12 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 4171)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:39:37 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1139)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 2385)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to "Quit", root_path, class:""  %>
+
+<h1>participations new</h1>
+
+<h2>Who want to have fun?</h2>
+
+<h3>Select in the order of play</h3>
+
+<%=form_for @participation do |p|%>
+
+  <%@registeredplayers.each do |player|%>
+
+    <%= p.check_box :player, {multiple: true}, player.id, false%>
+    <%= p.label :player, player.forename%>
+
+  <%end%>
+
+  <br><br>
+  <%= link_to "Create new player", new_player_path, class:""  %>
+
+  <br><br>
+
+  <%= p.submit 'Let's play'.html_safe, class: "" %>
+
+<%end%>
+
+):
+1:    <%= link_to "Quit", root_path, class:""  %>
+2:    
+3:    <h1>participations new</h1>
+4:    
+5:    <h2>Who want to have fun?</h2>
+6:    
+7:    <h3>Select in the order of play</h3>
+8:    
+9:    <%=form_for @participation do |p|%>
+10:    
+11:      <%@registeredplayers.each do |player|%>
+12:    
+13:        <%= p.check_box :player, {multiple: true}, player.id, false%>
+14:        <%= p.label :player, player.forename%>
+15:    
+16:      <%end%>
+17:    
+18:      <br><br>
+19:      <%= link_to "Create new player", new_player_path, class:""  %>
+20:    
+21:      <br><br>
+22:    
+23:      <%= p.submit 'Let's play'.html_safe, class: "" %>
+24:    
+25:    <%end%>
+  
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/participations/new" for ::1 at 2021-01-09 14:39:38 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  Rendered participations/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1126)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1630)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to "Quit", root_path, class:""  %>
+
+<h1>participations new</h1>
+
+<h2>Who want to have fun?</h2>
+
+<h3>Select in the order of play</h3>
+
+<%=form_for @participation do |p|%>
+
+  <%@registeredplayers.each do |player|%>
+
+    <%= p.check_box :player, {multiple: true}, player.id, false%>
+    <%= p.label :player, player.forename%>
+
+  <%end%>
+
+  <br><br>
+  <%= link_to "Create new player", new_player_path, class:""  %>
+
+  <br><br>
+
+  <%= p.submit 'Let's play'.html_safe, class: "" %>
+
+<%end%>
+
+):
+1:    <%= link_to "Quit", root_path, class:""  %>
+2:    
+3:    <h1>participations new</h1>
+4:    
+5:    <h2>Who want to have fun?</h2>
+6:    
+7:    <h3>Select in the order of play</h3>
+8:    
+9:    <%=form_for @participation do |p|%>
+10:    
+11:      <%@registeredplayers.each do |player|%>
+12:    
+13:        <%= p.check_box :player, {multiple: true}, player.id, false%>
+14:        <%= p.label :player, player.forename%>
+15:    
+16:      <%end%>
+17:    
+18:      <br><br>
+19:      <%= link_to "Create new player", new_player_path, class:""  %>
+20:    
+21:      <br><br>
+22:    
+23:      <%= p.submit 'Let's play'.html_safe, class: "" %>
+24:    
+25:    <%end%>
+  
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+app/views/participations/new.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/participations/new.html.erb:27: unterminated string meets end of file
+app/views/participations/new.html.erb:27: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/participations/new" for ::1 at 2021-01-09 14:39:49 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1471)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 1.1ms | Allocations: 6519)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:39:54 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1472)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 6512)
+
+
+Started POST "/participations" for ::1 at 2021-01-09 14:40:21 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"ga0WW3olHsDkMHPMIdpghYLqczOFOHCl1ii9E/F6/etp2NukWjhGdcEcg3WtTv5nAnU6I65oMo6vROb4Vy1jUQ==", "participation"=>{"player"=>["1", "3"]}, "commit"=>"Let's play!"}
+  [1m[36mGame Load (32.6ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 46.9ms | Allocations: 8285)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:16:in `create'
+Started GET "/participations/new" for ::1 at 2021-01-09 14:41:01 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 5090)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 12.2ms | ActiveRecord: 9.5ms | Allocations: 15217)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-01-09 14:42:03 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.5ms | Allocations: 199)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 4829)
+
+
+Started GET "/" for ::1 at 2021-01-09 14:42:04 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 4177)
+
+
+Started GET "/participations/new" for ::1 at 2021-01-09 14:42:05 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 28.2ms | Allocations: 5137)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 94ms (Views: 54.1ms | ActiveRecord: 25.1ms | Allocations: 15210)
+
+
+Started POST "/participations" for ::1 at 2021-01-09 14:42:07 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"YKVvvlWQd5vIiVWS9Mg1cXUk30I6NRZujC4onOpH2dZwCIMEa3i6P/sj+OSqr638McGjZlYuCZAF/11Q46Ypzw==", "participation"=>{"player"=>["1"]}, "commit"=>"Let's play!"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.5ms | Allocations: 6148)
+
+
+  
+RuntimeError ():
+  
+app/controllers/participations_controller.rb:13:in `create'
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.1ms)[0m  [1m[32mINSERT INTO "players" ("forename", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["forename", "Toto"], ["created_at", "2021-01-09 13:49:22.417891"], ["updated_at", "2021-01-09 13:49:22.417891"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (7.5ms)[0m  [1m[32mINSERT INTO "games" ("date", "winner_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["date", "2021-01-09"], ["winner_id", 2], ["created_at", "2021-01-09 14:00:17.597565"], ["updated_at", "2021-01-09 14:00:17.597565"]]
+  [1m[35m (14.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3812937285331623855)[0m
+  [1m[35m (23.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeWinnerNullOptionToGame (20210109162514)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3812937285331623855)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3812937285331623855)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeWinnerNullOptionToGame (20210109162514)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (85.2ms)[0m  [1m[35mALTER TABLE "games" ALTER COLUMN "winner" DROP NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3812937285331623855)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3812937285331623855)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeWinnerNullOptionToGame (20210109162514)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (30.2ms)[0m  [1m[35mALTER TABLE "games" ALTER COLUMN "winner_id" DROP NOT NULL[0m
+  [1m[36mprimary::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210109162514"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (69.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3812937285331623855)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/participations/new" for ::1 at 2021-01-09 17:57:16 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (55.9ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 86.5ms | Allocations: 6843)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 238ms (Views: 126.7ms | ActiveRecord: 71.7ms | Allocations: 30103)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (13.5ms)[0m  [1m[32mINSERT INTO "games" ("date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["date", "2021-01-09"], ["created_at", "2021-01-09 16:57:59.567808"], ["updated_at", "2021-01-09 16:57:59.567808"]]
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (11.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Started POST "/participations" for ::1 at 2021-01-09 17:58:56 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"BylToMij6Iquc9WrvfjXLA5xuAldKrDPYekE3A77YxDvXJ5f6L6wP4tfJRIxbEnOju7xGXZ68uQYhV83qKz9qg==", "participation"=>{"player"=>["1", "2"]}, "commit"=>"Let's play!"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:11:in `create'
+  [1m[36mGame Create (0.7ms)[0m  [1m[32mINSERT INTO "games" ("date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["date", "2021-01-09"], ["created_at", "2021-01-09 16:58:56.235676"], ["updated_at", "2021-01-09 16:58:56.235676"]]
+  ↳ app/controllers/participations_controller.rb:11:in `create'
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:11:in `create'
+  [1m[36mGame Load (3.9ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mParticipation Create (38.7ms)[0m  [1m[32mINSERT INTO "participations" ("game_id", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["game_id", 4], ["player_id", 1], ["created_at", "2021-01-09 16:58:56.405310"], ["updated_at", "2021-01-09 16:58:56.405310"]]
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mParticipation Create (0.6ms)[0m  [1m[32mINSERT INTO "participations" ("game_id", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["game_id", 4], ["player_id", 2], ["created_at", "2021-01-09 16:58:56.450065"], ["updated_at", "2021-01-09 16:58:56.450065"]]
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 237ms (ActiveRecord: 116.4ms | Allocations: 24422)
+
+
+Started GET "/" for ::1 at 2021-01-09 17:58:56 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.7ms | Allocations: 200)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 4875)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "participations"[0m
+Started GET "/participations/new" for ::1 at 2021-01-09 17:59:13 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1384)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.3ms | Allocations: 5699)
+
+
+Started POST "/participations" for ::1 at 2021-01-09 17:59:18 +0100
+Processing by ParticipationsController#create as HTML
+  Parameters: {"authenticity_token"=>"xLfPvEgxxADJRTV6T9f9nyF3fCrxk8U/VGykjWRf5+jUGiMGdtkJpPrvmAwRsGUSZZIADp2I2sHdvdFBbb4X8Q==", "participation"=>{"player"=>["1", "2", "3"]}, "commit"=>"Let's play!"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:11:in `create'
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("date", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["date", "2021-01-09"], ["created_at", "2021-01-09 16:59:18.203804"], ["updated_at", "2021-01-09 16:59:18.203804"]]
+  ↳ app/controllers/participations_controller.rb:11:in `create'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:11:in `create'
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:14:in `create'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mParticipation Create (0.6ms)[0m  [1m[32mINSERT INTO "participations" ("game_id", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["game_id", 5], ["player_id", 1], ["created_at", "2021-01-09 16:59:18.215963"], ["updated_at", "2021-01-09 16:59:18.215963"]]
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mParticipation Create (0.7ms)[0m  [1m[32mINSERT INTO "participations" ("game_id", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["game_id", 5], ["player_id", 2], ["created_at", "2021-01-09 16:59:18.229177"], ["updated_at", "2021-01-09 16:59:18.229177"]]
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/participations_controller.rb:21:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[36mParticipation Create (1.1ms)[0m  [1m[32mINSERT INTO "participations" ("game_id", "player_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["game_id", 5], ["player_id", 3], ["created_at", "2021-01-09 16:59:18.236373"], ["updated_at", "2021-01-09 16:59:18.236373"]]
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participations_controller.rb:19:in `block in create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 41ms (ActiveRecord: 19.6ms | Allocations: 12406)
+
+
+Started GET "/" for ::1 at 2021-01-09 17:59:18 +0100
+Processing by PagesController#landing as HTML
+  Rendering pages/landing.html.erb within layouts/application
+  Rendered pages/landing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 4163)
+
+
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "participations"[0m
+Started GET "/participations/new" for ::1 at 2021-01-09 17:59:41 +0100
+Processing by ParticipationsController#new as HTML
+  Rendering participations/new.html.erb within layouts/application
+  [1m[36mPlayer Load (3.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/participations/new.html.erb:11
+  Rendered participations/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1322)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 21.5ms | ActiveRecord: 3.7ms | Allocations: 5453)
+
+

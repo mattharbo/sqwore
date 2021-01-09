@@ -1,0 +1,25 @@
+<%= link_to "Quit", root_path, class:""  %>
+
+<h1>participations new</h1>
+
+<h2>Who want to have fun?</h2>
+
+<h3>Select in the order of play</h3>
+
+<%=form_for @participation do |p|%>
+
+  <%@registeredplayers.each do |player|%>
+
+    <%= p.check_box :player, {multiple: true}, player.id, false%>
+    <%= p.label :player, player.forename%>
+
+  <%end%>
+
+  <br><br>
+  <%= link_to "Create new player", new_player_path, class:""  %>
+
+  <br><br>
+
+  <%= p.submit "Let's play!", class: "" %>
+
+<%end%>

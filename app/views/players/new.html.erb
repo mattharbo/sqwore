@@ -1,0 +1,21 @@
+<%= link_to "Quit", root_path, class:""  %>
+
+<h1>Player new</h1>
+
+<h2>Creation of a new player</h2>
+
+<%=form_for @newplayer do |n|%>
+
+  <%= n.label :forename, "Enter a forename"%>
+  <%= n.text_field :forename%>
+
+  <br>
+
+  <%= n.label :surname, "Enter a surname"%>
+  <%= n.text_field :surname%>
+
+  <br><br>
+
+  <%= n.submit 'Create new player', class: "" %>
+
+<%end%>
