@@ -23,8 +23,14 @@ class ParticipationsController < ApplicationController
 
     end
 
-    # Redirection to [to be defined]
-    redirect_to root_path
+    case params["participation"]["player"].size
+    when 2
+      redirect_to r2_path(latest_game.id)
+    when 3
+      redirect_to r3_path(latest_game.id)
+    when 4
+      redirect_to r4_path(latest_game.id)
+    end
 
   end
 
