@@ -15,7 +15,9 @@
  */
 
  /* #### CSS Parials #### */
- /* @import "components/colors"; */
+ @import "components/recordtwo";
+ @import "components/recordthree";
+ @import "components/recordfour";
 
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&display=swap');
 
@@ -37,6 +39,7 @@ h1{
 }
 
 .main_container{
+  position: relative;
   width: 400px;
   height: 562px;
   border-radius: 3px;

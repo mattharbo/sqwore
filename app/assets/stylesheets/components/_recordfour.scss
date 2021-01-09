@@ -1,0 +1,32 @@
+.fourside{
+  display: flex;
+  justify-content:center;
+	align-items:center;
+  width: 50%;
+  height: 100%;
+}
+
+.topleftsidecolor{
+  background-color: #353DDB;
+}
+
+.toprightsidecolor{
+  background-color: #E537A1;
+}
+
+.bottomleftsidecolor{
+  background-color: #FF5E11;
+}
+
+.bottomrightsidecolor{
+  background-color: #FFC03B;
+}
+
+.foursidecontent{
+  text-align: center;
+  // background-color: pink;
+}
+
+.foursidecontent > p{
+  margin: 0;
+}

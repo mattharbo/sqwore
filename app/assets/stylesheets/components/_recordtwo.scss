@@ -1,0 +1,62 @@
+.menu{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.side{
+  display: flex;
+  justify-content:center;
+	align-items:center;
+  width: 100%;
+  height: 50%;
+}
+
+.topsidecolor{
+  background-color: #353DDB;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.bottomsidecolor{
+  background-color: #FFC03B;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.sidecontent{
+  text-align: center;
+  // background-color: yellow;
+  margin-right: 70px;
+}
+
+.playerbutton{
+  font-size: 20px;
+  margin-right: 50px;
+}
+
+.sidecontent > p{
+  margin: 0;
+}
+
+.position{
+  margin-bottom: 10px !important;
+  font-size: 17px;
+}
+
+.score{
+  font-size: 80px;
+}
+
+.playername{
+  margin-top: 10px !important;
+  font-size: 20px;
+}
+
+.bottomturn{
+  visibility: visible;
+}
+
+.topturn{
+  visibility: hidden;
+}

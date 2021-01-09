@@ -1,3 +1,50 @@
-<h2>This is the record page of a 4 players game</h2>
+<div class="menu">
+  End game
+</div>
 
-<%=@participants.count%> players
+<div id="topside" class="side">
+
+  <div class="fourside topleftsidecolor">
+    <div class="playerbutton bottomturn rotate_plus90">&#x1F354</div>
+    <div class="foursidecontent rotate_plus90">
+      <p class="position">2nd with -14 points</p>
+      <p class="score">18</p>
+      <p class="playername">
+        <%=@participants[0].player.forename%>
+      </p>
+    </div>
+  </div>
+
+  <div class="fourside toprightsidecolor">
+    <div class="foursidecontent rotate_minus90">
+      <p class="position">2nd with -14 points</p>
+      <p class="score">18</p>
+      <p class="playername">
+        <%=@participants[1].player.forename%>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div id="bottomside" class="side bottomsidecolor">
+  <div class="fourside bottomleftsidecolor">
+    <div class="foursidecontent rotate_plus90">
+      <p class="position">2nd with -14 points</p>
+      <p class="score">18</p>
+      <p class="playername">
+        <%=@participants[2].player.forename%>
+      </p>
+    </div>
+  </div>
+
+  <div class="fourside bottomrightsidecolor">
+    <div class="foursidecontent rotate_minus90">
+      <p class="position">2nd with -14 points</p>
+      <p class="score">18</p>
+      <p class="playername">
+        <%=@participants[3].player.forename%>
+      </p>
+    </div>
+  </div>
+</div>

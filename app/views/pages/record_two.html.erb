@@ -1,3 +1,25 @@
-<h2>This is the record page of a 2 players game</h2>
+<div class="menu">
+  End game
+</div>
 
-<%=@participants.count%> players
+<div id="topplayer" class="side topsidecolor">
+  <div class="playerbutton rotate180 topturn">&#x1F354</div>
+  <div class="sidecontent rotate180">
+    <p class="position">2nd with -14 points</p>
+    <p class="score">18</p>
+    <p class="playername">
+      <%=@participants[0].player.forename%>
+    </p>
+  </div>
+</div>
+
+<div id="bottomplayer" class="side bottomsidecolor">
+  <div class="playerbutton bottomturn">&#x1F354</div>
+  <div class="sidecontent">
+    <p class="position">1st with +14 points</p>
+    <p class="score">32</p>
+    <p class="playername">
+      <%=@participants[1].player.forename%>
+    </p>
+  </div>
+</div>

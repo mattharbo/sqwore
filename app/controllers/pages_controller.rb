@@ -6,15 +6,12 @@ class PagesController < ApplicationController
   end
 
   def record_two
-
   end
 
   def record_three
-
   end
 
   def record_four
-
   end
 
   private
